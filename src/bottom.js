@@ -1,8 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button, Image, TouchableWithoutFeedback} from 'react-native';
 import Balon from './assets/img/Image.png';
+import Card from './assets/img/tarjeta.png';
+
 const bottom = (props) => {
     return(
+      <View>
         <TouchableWithoutFeedback 
         onPress={() => alert('wiii')}
         >
@@ -11,18 +14,30 @@ const bottom = (props) => {
             style={styles.imageBalon}
             />
         </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback 
+        onPress={() => alert('wuu')}
+        >
+            <Image
+            source={Card}
+            style={styles.imageCard}
+            />
+        </TouchableWithoutFeedback>
+      </View>
     )
 }
 
 const styles = StyleSheet.create({
     
     imageBalon: {
-      width: 50,
-      height: 50,
+      width: 40,
+      height: 40,
+      marginLeft: 8,
     },
     imageCard: {
-      width: 30,
-      height: 40,
+      width: 24,
+      height: 30,
+      marginLeft: 16,
+      marginTop: 6,
     },
   });
 

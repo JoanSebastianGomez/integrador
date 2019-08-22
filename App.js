@@ -51,20 +51,12 @@ const App = () => {
             <Bottom name={this.state}/>
           </View>
           <View style={styles.body}>
-            
+            <Input style={styles.fechas}/>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes kjkj</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
+              <Bottom name={this.state}/>
             </View>
-            <Bottom name={this.state}/>
             <Input/>
           </View>
-          <Image
-            source={Balon}
-            style={styles.imageBalon}
-          />
           <Image
             source={Card}
             style={styles.imageCard}
@@ -83,6 +75,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F7F4F4',
     padding: 30,
+  },
+  fechas: {
+    textAlign: "center",
   },
   engine: {
     position: 'absolute',

@@ -11,4 +11,11 @@ class Input extends Component{
     }
 }
 
+const styles = StyleSheet.create({
+    
+    input: {
+        alignItems: "center",
+    },
+  });
+
 export default Input;
