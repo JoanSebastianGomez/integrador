@@ -4,8 +4,8 @@ import {StyleSheet, View, Text} from 'react-native';
 class Input extends Component{
     render(){
         return(
-            <View>
-                <Text>holi</Text>
+            <View style={styles.input}>
+                <Text>Fecha 1</Text>
             </View>
         )
     }
@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     
     input: {
         alignItems: "center",
+        textDecorationLine: "underline",
     },
   });
 

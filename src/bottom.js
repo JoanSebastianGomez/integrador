@@ -5,7 +5,7 @@ import Card from './assets/img/tarjeta.png';
 
 const bottom = (props) => {
     return(
-      <View>
+      <View style={styles.content}>
         <TouchableWithoutFeedback 
         onPress={() => alert('wiii')}
         >
@@ -27,7 +27,9 @@ const bottom = (props) => {
 }
 
 const styles = StyleSheet.create({
-    
+    content: {
+      marginRight: 20,
+    },
     imageBalon: {
       width: 40,
       height: 40,

@@ -15,6 +15,7 @@ import {
   Text,
   Image,
   StatusBar,
+  TouchableWithoutFeedback,
 } from 'react-native';
 
 import {
@@ -26,10 +27,14 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Bottom from './src/bottom';
+import Match from './src/match';
 import Input from './src/input';
 import Picker from './src/picker';
 import Balon from './src/assets/img/Image.png';
 import Card from './src/assets/img/tarjeta.png';
+import Menu from './src/assets/img/menu.png';
+import Search from './src/assets/img/search.png';
+import Date from './src/date';
 
 const App = () => {
 
@@ -47,20 +52,19 @@ const App = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <View style={styles.navbar}>
+            <Image source={Menu} style={styles.imageMenu}/>
             <Text style={styles.sectionTitle}>Rappi Bet</Text>
-            <Bottom name={this.state}/>
+            <Image source={Search} style={styles.imageSearch}/>
           </View>
           <View style={styles.body}>
             <Input style={styles.fechas}/>
             <View style={styles.sectionContainer}>
               <Bottom name={this.state}/>
+             
+                <Match/>
+              
             </View>
-            <Input/>
           </View>
-          <Image
-            source={Card}
-            style={styles.imageCard}
-          />
         </ScrollView>
       </SafeAreaView>
     </Fragment>
@@ -72,9 +76,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.lighter,
   },
   navbar: {
-    flex: 1,
+    flex: 4,
     backgroundColor: '#F7F4F4',
     padding: 30,
+    flex: 1,
+    flexDirection: "row",
   },
   fechas: {
     textAlign: "center",
@@ -89,6 +95,8 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
+    flex: 1,
+    flexDirection: "row",
   },
   sectionTitle: {
     fontSize: 24,
@@ -112,6 +120,17 @@ const styles = StyleSheet.create({
   imageCard: {
     width: 30,
     height: 40,
+  },
+  imageMenu: {
+    width: 50,
+    height: 50,
+    marginRight: 80,
+  },
+  imageSearch: {
+    width: 30,
+    height: 30,
+    marginLeft: 80,
+    
   },
   footer: {
     color: Colors.dark,
