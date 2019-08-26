@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button, Image, TouchableWithoutFeedback} from 'react-native';
-import Balon from './assets/img/Image.png';
-import Card from './assets/img/tarjeta.png';
+import Balon from '../assets/img/Image.png';
+import Card from '../assets/img/tarjeta.png';
 
 const bottom = (props) => {
     return(

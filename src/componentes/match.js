@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text, Button, Image, TouchableWithoutFeedback} from 'react-native';
-import Team1 from './assets/img/dim.png';
-import Team2 from './assets/img/ah.png';
+import Team1 from '../assets/img/dim.png';
+import Team2 from '../assets/img/ah.png';
 import Date from './date';
 
 const match = (props) => {

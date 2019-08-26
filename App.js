@@ -6,7 +6,8 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, {Fragment, Component} from 'react';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 import {
   SafeAreaView,
   StyleSheet,
@@ -26,59 +27,68 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Bottom from './src/bottom';
-import Match from './src/match';
-import Input from './src/input';
-import Picker from './src/picker';
+import Bottom from './src/componentes/bottom';
+import Match from './src/componentes/match';
+import Input from './src/componentes/input';
+import Bets from './src/ventanas/bets';
 import Balon from './src/assets/img/Image.png';
 import Card from './src/assets/img/tarjeta.png';
 import Menu from './src/assets/img/menu.png';
 import Search from './src/assets/img/search.png';
-import Date from './src/date';
+import Date from './src/componentes/date';
 
-const App = () => {
+class App extends Component {
 
   state = {
     nameOfApp: 'lalala',
     be: 'jiji'
   }
-
-  return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-        
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <View style={styles.navbar}>
-            <Image source={Menu} style={styles.imageMenu}/>
-            <Text style={styles.sectionTitle}>Rappi Bet</Text>
-            <Image source={Search} style={styles.imageSearch}/>
-          </View>
-          <View style={styles.body}>
-            <Input style={styles.fechas}/>
-            <View style={styles.sectionContainer}>
-              <Bottom name={this.state}/>
-             
-                <Match/>
-              
+  render(){
+    return (
+      <Fragment>
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView>
+          <ScrollView
+          
+            contentInsetAdjustmentBehavior="automatic"
+            style={styles.scrollView}>
+            <View style={styles.navbar}>
+              <Image source={Menu} style={styles.imageMenu}/>
+              <Text style={styles.sectionTitle}>Rappi Bet</Text>
+              <Image source={Search} style={styles.imageSearch}/>
             </View>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
-  );
-};
+            <View style={styles.body}>
+              <Input style={styles.fechas}/>
+              <View style={styles.sectionContainer1}>
+                <Bottom name={this.state}/>
+              
+                  <Match/>
+                
+              </View>
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+      </Fragment>
+    );
+  }
+}
+
+const AppNavigator = createStackNavigator({
+  Home:{
+    screen: App
+  }
+},{
+  initialRouteName: 'Home'
+})
 
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
   },
   navbar: {
-    flex: 4,
     backgroundColor: '#F7F4F4',
     padding: 30,
+    paddingBottom: 20,
     flex: 1,
     flexDirection: "row",
   },
@@ -92,11 +102,12 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: Colors.white,
   },
-  sectionContainer: {
+  sectionContainer1: {
     marginTop: 32,
     paddingHorizontal: 24,
     flex: 1,
     flexDirection: "row",
+    justifyContent: "space-between",
   },
   sectionTitle: {
     fontSize: 24,
@@ -113,14 +124,6 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
-  imageBalon: {
-    width: 50,
-    height: 50,
-  },
-  imageCard: {
-    width: 30,
-    height: 40,
-  },
   imageMenu: {
     width: 50,
     height: 50,
@@ -130,7 +133,6 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     marginLeft: 80,
-    
   },
   footer: {
     color: Colors.dark,
@@ -142,4 +144,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default createAppContainer(AppNavigator);
