@@ -1,12 +1,12 @@
 import React, {Fragment, Component} from 'react';
-import {StyleSheet, ScrollView, View, Text, StatusBar, Image} from 'react-native';
+import {StyleSheet, ScrollView, View, Text, StatusBar, Image,SafeAreaView} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import Match from '../componentes/match';
 import Menu from '../assets/img/menu.png';
 import Search from '../assets/img/search.png';
 
-class Bets extends Component{
+class bets extends Component{
     render(){
         return(
             <Fragment>
@@ -92,4 +92,4 @@ const styles = StyleSheet.create({
     },
   });
 
-export default Bets;
+export default bets;
