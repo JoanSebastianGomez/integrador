@@ -74,11 +74,26 @@ class App extends Component {
 }
 
 const AppNavigator = createStackNavigator({
+  Bets:{
+    screen: Bets
+  },
   Home:{
     screen: App
   }
 },{
-  initialRouteName: 'Home'
+  initialRouteName: 'Bets',
+  defaultNavigationOptions: {
+    title: 'Rappi Bet',
+    headerStyle:{
+      
+    },
+    headerTitleStyle: {
+      fontSize: 24,
+      fontWeight: '600',
+      color: '#07A200',
+      textAlign: "center",
+    }
+  }
 })
 
 const styles = StyleSheet.create({

@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from 'react';
-import {StyleSheet, ScrollView, View, Text, StatusBar, Image} from 'react-native';
+import {StyleSheet, SafeAreaView, ScrollView, View, Text, StatusBar, Image} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import Match from '../componentes/match';
