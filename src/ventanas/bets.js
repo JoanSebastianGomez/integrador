@@ -36,6 +36,7 @@ class bets extends Component{
                                 <Text style={styles.textFonts}>Empate</Text>
                                 <Text style={styles.textFonts}>0,4</Text>
                             </View>
+                            
                             <Text style={styles.sectionTitle}>___________________________</Text>
                             <Text style={styles.textFonts}>Mis apuestas</Text>
                         </View>

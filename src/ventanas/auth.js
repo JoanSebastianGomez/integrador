@@ -1,14 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Fragment, Component} from 'react';
-import {connect} from 'react-redux'
-import {getArticles} from '../actions/index'
 
 import {
   SafeAreaView,
@@ -42,50 +32,17 @@ import Date from '../componentes/date';
 
 
 
-class matchs extends Component {
-  
+class auth extends Component {
 
-  componentDidMount(){
-    this.props.dispatch(getArticles());
-  }
-
-  
-  constructor(props,env){ 
-
-    super(props,env);
-    this.state = {
-    nameOfApp: 'lalala',
-    be: 'jiji',
-    cambiar:"no"
-  }}
-  
-  
-  
  
   render(){
     return (
-      <Fragment>
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView
-          
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}>
-            <View style={styles.navbar}>
-              <Image source={Menu} style={styles.imageMenu}/>
-              <Text style={styles.sectionTitle}>Rappi Bet</Text>
-              <Image source={Search} style={styles.imageSearch}/>
-            </View>
-            <View style={styles.body}>
-              <Input style={styles.fechas}/>
-              <View style={styles.sectionContainer1}>
-                <Bottom />
-                   <Match/>                
-              </View>
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-      </Fragment>
+     <View>
+
+         <Text>
+             hello iam the login
+         </Text>
+     </View>
     );
   }
 }
@@ -153,9 +110,5 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapStateToProp(state){
-  return {
-    articles:state.articles
-  }
-}
-export default connect(mapStateToProp)(matchs);
+
+export default auth;

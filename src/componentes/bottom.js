@@ -7,7 +7,7 @@ const bottom = (props) => {
     return(
       <View style={styles.content}>
         <TouchableWithoutFeedback 
-        onPress={() => alert('wiii')}
+        onPress={() =>alert('lala')}
         >
             <Image
             source={Balon}
@@ -15,7 +15,7 @@ const bottom = (props) => {
             />
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback 
-        onPress={() => alert('wuu')}
+        onPress={() =>alert('lolo')}
         >
             <Image
             source={Card}
@@ -46,7 +46,3 @@ const styles = StyleSheet.create({
 export default bottom;
 
 
-/*<Button
-            title="acept"
-            onPress={() => alert('wiii')}
-        />*/
