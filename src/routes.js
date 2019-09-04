@@ -20,7 +20,12 @@ const AppStack =createBottomTabNavigator({
 
 const AuthStack=createStackNavigator({
     Auth:Auth
-})
+},{
+    headerMode:"none"
+}
+
+
+)
 
 export const RootNavigator =()=>{
     return createAppContainer(createSwitchNavigator({
