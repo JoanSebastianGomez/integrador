@@ -11,7 +11,7 @@ createAppContainer
 
 import Matchs from './ventanas/matchs';
 import Bets from './ventanas/bets'
-import SignIn from './ventanas/auth'
+import Auth from './ventanas/auth'
 
 const AppStack =createBottomTabNavigator({
     Matchs:Matchs,
@@ -19,7 +19,7 @@ const AppStack =createBottomTabNavigator({
 })
 
 const AuthStack=createStackNavigator({
-    SignIn:SignIn
+    Auth:Auth
 })
 
 export const RootNavigator =()=>{

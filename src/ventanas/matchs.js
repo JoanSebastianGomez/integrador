@@ -48,20 +48,7 @@ class matchs extends Component {
   componentDidMount(){
     this.props.dispatch(getArticles());
   }
-
   
-  constructor(props,env){ 
-
-    super(props,env);
-    this.state = {
-    nameOfApp: 'lalala',
-    be: 'jiji',
-    cambiar:"no"
-  }}
-  
-  
-  
- 
   render(){
     return (
       <Fragment>
