@@ -13,11 +13,11 @@ class Bets extends Component{
                 <StatusBar barStyle="dark-content" />
                 <SafeAreaView>
                     <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
-                        <View style={styles.navbar}>
+                        {/*<View style={styles.navbar}>
                             <Image source={Menu} style={styles.imageMenu}/>
                             <Text style={styles.sectionTitle}>Rappi Bet</Text>
                             <Image source={Search} style={styles.imageSearch}/>
-                        </View>
+        </View>*/}
                         <View>
                             <Text style={styles.textFonts}>Apuesta</Text>
                             <View style={styles.sectionContainer2}>

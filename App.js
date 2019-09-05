@@ -36,6 +36,8 @@ import Card from './src/assets/img/tarjeta.png';
 import Menu from './src/assets/img/menu.png';
 import Search from './src/assets/img/search.png';
 import Date from './src/componentes/date';
+import MenuLogo from './src/componentes/menuLogo';
+import MenuSearch from './src/componentes/searchLogo';
 
 class App extends Component {
 
@@ -52,11 +54,11 @@ class App extends Component {
           
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
-            <View style={styles.navbar}>
+            {/* <View style={styles.navbar}> 
               <Image source={Menu} style={styles.imageMenu}/>
               <Text style={styles.sectionTitle}>Rappi Bet</Text>
               <Image source={Search} style={styles.imageSearch}/>
-            </View>
+            </View>*/}
             <View style={styles.body}>
               <Input style={styles.fechas}/>
               <View style={styles.sectionContainer1}>
@@ -75,7 +77,14 @@ class App extends Component {
 
 const AppNavigator = createStackNavigator({
   Bets:{
-    screen: Bets
+    screen: Bets,
+    navigationOptions: ({ navigation }) => ({
+      headerLeft: MenuLogo,
+      headerRight:
+                    <TouchableWithoutFeedback onPress={() => alert('wuu')}>
+                      <Image source={Search} style={styles.imageSearch}/>
+                    </TouchableWithoutFeedback>
+    })
   },
   Home:{
     screen: App
@@ -91,6 +100,7 @@ const AppNavigator = createStackNavigator({
       fontSize: 24,
       fontWeight: '600',
       color: '#07A200',
+      flex: 1,
       textAlign: "center",
     }
   }
@@ -145,9 +155,9 @@ const styles = StyleSheet.create({
     marginRight: 80,
   },
   imageSearch: {
-    width: 30,
-    height: 30,
-    marginLeft: 80,
+    width: 28,
+    height: 28,
+    marginRight: 20,
   },
   footer: {
     color: Colors.dark,
