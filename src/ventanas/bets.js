@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from 'react';
-import {StyleSheet, SafeAreaView, ScrollView, View, Text, StatusBar, Image} from 'react-native';
+import {StyleSheet, SafeAreaView, ScrollView, View, Text, StatusBar, Image, Button, TouchableWithoutFeedback} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import Match from '../componentes/match';
@@ -7,6 +7,20 @@ import Menu from '../assets/img/menu.png';
 import Search from '../assets/img/search.png';
 
 class Bets extends Component{
+
+    /*static navigationOptions = {
+        headerLeft: 
+                    <TouchableWithoutFeedback onPress={() => navigation.openDrawer()}>
+                        <Text>holi</Text>
+                    </TouchableWithoutFeedback>,
+        headerRight:
+                    <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Search')}>
+                      <Text>holix2</Text>
+                    </TouchableWithoutFeedback>
+    
+    }*/
+//<Image source={Menu} style={styles.imageMenu}/>
+//<Image source={Search} style={styles.imageSearch}/>
     render(){
         return(
             <Fragment>
@@ -18,6 +32,7 @@ class Bets extends Component{
                             <Text style={styles.sectionTitle}>Rappi Bet</Text>
                             <Image source={Search} style={styles.imageSearch}/>
         </View>*/}
+                        
                         <View>
                             <Text style={styles.textFonts}>Apuesta</Text>
                             <View style={styles.sectionContainer2}>
@@ -42,6 +57,7 @@ class Bets extends Component{
                     </ScrollView>
                 </SafeAreaView>
             </Fragment>
+            
         )
     }
 }

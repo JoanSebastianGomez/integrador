@@ -7,7 +7,7 @@
  */
 
 import React, {Fragment, Component} from 'react';
-import {createStackNavigator, createAppContainer} from 'react-navigation';
+import {createStackNavigator, createAppContainer, createDrawerNavigator} from 'react-navigation';
 import {
   SafeAreaView,
   StyleSheet,
@@ -38,6 +38,7 @@ import Search from './src/assets/img/search.png';
 import Date from './src/componentes/date';
 import MenuLogo from './src/componentes/menuLogo';
 import MenuSearch from './src/componentes/searchLogo';
+import SearchW from './src/ventanas/search';
 
 class App extends Component {
 
@@ -74,23 +75,60 @@ class App extends Component {
     );
   }
 }
+//<Button title="abrir menu" onPress={() => this.props.navigation.openDrawer()}/>
 
-const AppNavigator = createStackNavigator({
+const OtherStack = createStackNavigator({
   Bets:{
     screen: Bets,
     navigationOptions: ({ navigation }) => ({
       headerLeft: MenuLogo,
       headerRight:
-                    <TouchableWithoutFeedback onPress={() => alert('wuu')}>
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('Search')}>
                       <Image source={Search} style={styles.imageSearch}/>
                     </TouchableWithoutFeedback>
     })
   },
-  Home:{
-    screen: App
-  }
+  Search:{
+    screen: SearchW,
+  },
 },{
   initialRouteName: 'Bets',
+  defaultNavigationOptions: {
+    title: 'Rappi Bet',
+    headerTitleStyle: {
+      fontSize: 24,
+      fontWeight: '600',
+      color: '#07A200',
+      flex: 1,
+      textAlign: "center",
+    }
+  }
+})
+
+const HomeStack = createStackNavigator({
+  
+  Home:{
+    screen: App,
+    navigationOptions: ({ navigation }) => ({
+      headerLeft: 
+                    <TouchableWithoutFeedback onPress={() => navigation.openDrawer()}>
+                        <Image source={Menu} style={styles.imageMenu}/>
+                    </TouchableWithoutFeedback>,
+      headerRight:
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('Search')}>
+                      <Image source={Search} style={styles.imageSearch}/>
+                    </TouchableWithoutFeedback>
+    })
+  },
+  Bets:{
+    screen: Bets,
+    
+  },
+  Search:{
+    screen: SearchW,
+  }
+},{
+  initialRouteName: 'Home',
   defaultNavigationOptions: {
     title: 'Rappi Bet',
     headerStyle:{
@@ -105,6 +143,29 @@ const AppNavigator = createStackNavigator({
     }
   }
 })
+
+const AppNavigator = createDrawerNavigator({
+  Home: HomeStack,
+  Bets: OtherStack,
+  /*Bet:{
+    screen: Bets,
+    navigationOptions: {
+      title: ' ',
+      drawerIcon:() => (
+        <Image source={Menu} style={styles.imageSearch}/>
+      )
+    }
+  },
+  Search: SearchW,*/
+},{
+  drawerWidth: 140,
+  drawerBackgroundColor: '#8EE46D',
+  drawerType: "front",
+  contentOptions:{
+    activeBackgroundColor: '#ABAEA9'
+  }
+})
+
 
 const styles = StyleSheet.create({
   scrollView: {
