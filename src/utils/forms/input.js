@@ -1,20 +1,17 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react'
 
-import {TextInput,StyleSheet } from 'react-native'
-import {  } from 'react-native-gesture-handler';
+import { TextInput, StyleSheet } from 'react-native'
+import { } from 'react-native-gesture-handler';
 
-const input =(props)=>{
-    let template=null;
+const input = (props) => {
+    let template = null;
 
-    switch(props.type){
+    switch (props.type) {
         case "textinput":
-        template=<TextInput 
-        {...props}
-        style={[styles.input,props.overrideStyle]}/>
-           
-
-        
-        break;
+            template = <TextInput
+                {...props}
+                style={[styles.input, props.overrideStyle]} />
+            break;
         default:
             return template
     }
@@ -24,15 +21,15 @@ const input =(props)=>{
 
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
 
-    input:{
-        width:'100%',
-        borderBottomWidth:1,
-        borderBottomColor:'#eaeaea',
-        fontSize:16,
-        padding:5,
-        marginTop:10
+    input: {
+        width: '100%',
+        borderBottomWidth: 1,
+        borderBottomColor: '#eaeaea',
+        fontSize: 16,
+        padding: 5,
+        marginTop: 10
 
     }
 })

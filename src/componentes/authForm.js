@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, Platform } from 'react-native'
 import Input from '../utils/forms/input'
+import ValidationRules from '../utils/forms/validationRules'
+
 class AuthForm extends Component {
 
   state = {
@@ -41,11 +43,11 @@ class AuthForm extends Component {
     }
   }
   changeFormType = () => {
-    const type=this.state.type;
+    const type = this.state.type;
     this.setState({
-      type: type==='Login'?'Register':'Login',
-      action: type==='Login'?'Register':'Login',
-      actionMode: type==='Login'?'I want to Login':'I want to register'
+      type: type === 'Login' ? 'Register' : 'Login',
+      action: type === 'Login' ? 'Register' : 'Login',
+      actionMode: type === 'Login' ? 'I want to Login' : 'I want to register'
 
 
     })
@@ -54,7 +56,37 @@ class AuthForm extends Component {
 
 
   submitUser = () => {
+    let isFormValid = true;
+    let formToSubmit = {};
+    const formCopy = this.state.form;
+    for (let key in formCopy) {
+      if (this.state.type === 'Login') {
+        //Login
+        if (key !== 'confirmPassword') {
+          isFormValid = isFormValid && formCopy[key].valid;
+          formToSubmit[key] = formCopy[key].value
+        }
 
+
+      } else {
+        isFormValid = isFormValid && formCopy[key].valid;
+        formToSubmit[key] = formCopy[key].value
+        //register
+      }
+    }
+
+    if(isFormValid){
+      if(this.state.type==='Login'){
+        this.props.goNext()
+      }else{
+
+        alert("vak")
+      }
+    }else{
+      this.setState({
+        hasErrors:true
+      })
+    }
 
   }
 
@@ -93,6 +125,11 @@ class AuthForm extends Component {
     });
     let formCopy = this.state.form;
     formCopy[name].value = value;
+
+    let rules = formCopy[name].rules;
+    let valid = ValidationRules(value, rules, formCopy)
+    formCopy[name].valid = valid;
+
     this.setState({
       form: formCopy
     })
@@ -143,9 +180,8 @@ class AuthForm extends Component {
         <Button
           style={styles.button}
           title="next window"
-          onPress={()=>this.props.goNext()}
+          onPress={() => this.props.goNext()}
         />
-
       </View>
 
     </View>
