@@ -8,7 +8,8 @@ const LogoComponent = () => {
                resizeMode={'center'}
                style={{
                    width:200,
-                   height:100
+                   height:100,
+                   alignItems:"center"
                }}
                       />
        </View>)

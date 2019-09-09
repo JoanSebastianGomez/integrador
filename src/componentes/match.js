@@ -8,17 +8,17 @@ const match = (props) => {
     return(
       <View style={styles.apuesta}>
            <TouchableWithoutFeedback 
-              onPress={() => alert('Apuesta')}
+              onPress={() => props.goBets()}
               >
         <Image
             source={Team1}
             style={styles.imageTeam}
             />
             </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => alert('Apuesta')}>
+        <TouchableWithoutFeedback onPress={() => props.goBets()}>
             <Date/>
         </TouchableWithoutFeedback>  
-        <TouchableWithoutFeedback onPress={() => alert('Apuesta')}>
+        <TouchableWithoutFeedback onPress={() =>props.goBets()}>
             <Image
             source={Team2}
             style={styles.imageTeam}

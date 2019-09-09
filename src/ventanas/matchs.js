@@ -48,7 +48,11 @@ class matchs extends Component {
   componentDidMount(){
     this.props.dispatch(getArticles());
   }
-  
+
+  goBets=()=>{
+    this.props.navigation.navigate('Bets')
+  }
+
   render(){
     return (
       <Fragment>
@@ -67,7 +71,7 @@ class matchs extends Component {
               <Input style={styles.fechas}/>
               <View style={styles.sectionContainer1}>
                 <Bottom />
-                   <Match/>                
+                   <Match goBets={this.goBets}/>                
               </View>
             </View>
           </ScrollView>

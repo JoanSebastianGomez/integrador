@@ -1,4 +1,4 @@
-import React, {Fragment, Component} from 'react';
+import React, { Fragment, Component } from 'react';
 import AuthLogo from '../componentes/authLogo'
 import AuthForm from '../componentes/authForm'
 
@@ -20,45 +20,51 @@ import {
 
 class Auth extends Component {
 
- state={
-   loading:false
- }
+  state = {
+    loading: false
+  }
 
+  goNext=()=>{
+    this.props.navigation.navigate('App')
+  }
 
+  render() {
 
-  render(){
-
-    if(this.state.loading){
-     return(
+    if (this.state.loading) {
+      return (
         <View style={styles.loading}>
-            <ActivityIndicator/>
+          <ActivityIndicator />
         </View>
-     )
-    } else{
+      )
+    } else {
 
       return (
         <ScrollView style={styles.container}>
-          <View >
+          <View style={styles.form}>
             <AuthLogo></AuthLogo>
-            <AuthForm/>
-        </View>
+            <AuthForm goNext={this.goNext}/>
+          </View>
         </ScrollView>
-         );
+      );
     }
-              
-     
-   
+
+
+
   }
 }
-const styles=StyleSheet.create({
-container:{
-flex:1,
-backgroundColor:"white"
-} ,
-loading:{
-  flex:1,
-  backgroundColor:"white"
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+
+  },
+  loading: {
+    flex: 1,
+    backgroundColor: "white"
+  },
+  form: {
+    alignItems: "center",
+  }
 
 
 
