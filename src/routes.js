@@ -5,7 +5,8 @@ import{
 createStackNavigator,
 createBottomTabNavigator,
 createSwitchNavigator,
-createAppContainer
+createAppContainer,
+createDrawerNavigator
 }from 'react-navigation';
 
 
@@ -34,6 +35,11 @@ const AppStack =createBottomTabNavigator({
     Teams:Teams,
     History:History
 })
+const DrawStack=createDrawerNavigator({
+    AppStack:AppStack,
+    BetStack:BetStack
+
+})
 
 const AuthStack=createStackNavigator({
     Auth:Auth
@@ -46,10 +52,9 @@ const AuthStack=createStackNavigator({
 
 export const RootNavigator =()=>{
     return createAppContainer(createSwitchNavigator({
-        App:AppStack,
+
         Auth:AuthStack,
-        Bet:BetStack
-    },{
+        DrawStack:DrawStack    },{
         initialRouteName:'Auth'
     }
     ))

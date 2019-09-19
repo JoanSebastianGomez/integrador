@@ -25,7 +25,7 @@ class Auth extends Component {
   }
 
   goNext=()=>{
-    this.props.navigation.navigate('App')
+    this.props.navigation.navigate('DrawStack')
   }
 
   render() {
