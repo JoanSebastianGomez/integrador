@@ -16,6 +16,8 @@ import Teams from './ventanas/teams'
 import Team1 from './ventanas/team1'
 import Team2 from './ventanas/team2'
 import Stadistics from './ventanas/stadistics'
+import History from './ventanas/history'
+
 
 
 
@@ -30,6 +32,7 @@ const BetStack =createBottomTabNavigator({
 const AppStack =createBottomTabNavigator({
     Matchs:Matchs,
     Teams:Teams,
+    History:History
 })
 
 const AuthStack=createStackNavigator({
