@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from 'react';
-import {StyleSheet, ScrollView, View, Text, StatusBar, Image,SafeAreaView} from 'react-native';
+import {StyleSheet, ScrollView, View, Text, StatusBar, Image,SafeAreaView, TouchableWithoutFeedback} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import Match from '../componentes/match';
@@ -7,6 +7,11 @@ import Menu from '../assets/img/menu.png';
 import Search from '../assets/img/search.png';
 
 class bets extends Component{
+
+    openDrawer=()=>{
+        this.props.navigation.openDrawer()
+    }
+
     render(){
         return(
             <Fragment>
@@ -14,7 +19,9 @@ class bets extends Component{
                 <SafeAreaView>
                     <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
                         <View style={styles.navbar}>
-                            <Image source={Menu} style={styles.imageMenu}/>
+                            <TouchableWithoutFeedback onPress={this.openDrawer}>
+                                <Image source={Menu} style={styles.imageMenu}/>
+                            </TouchableWithoutFeedback>
                             <Text style={styles.sectionTitle}>Rappi Bet</Text>
                             <Image source={Search} style={styles.imageSearch}/>
                         </View>

@@ -38,7 +38,13 @@ const AppStack =createBottomTabNavigator({
 const DrawStack=createDrawerNavigator({
     AppStack:AppStack,
     BetStack:BetStack
-
+},{
+    drawerWidth: 140,
+    drawerBackgroundColor: '#8EE46D',
+    drawerType: "front",
+    contentOptions:{
+        activeBackgroundColor: '#ABAEA9'
+    }
 })
 
 const AuthStack=createStackNavigator({

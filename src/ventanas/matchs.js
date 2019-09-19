@@ -50,7 +50,11 @@ class matchs extends Component {
   }
 
   goBets=()=>{
-    this.props.navigation.navigate('Bet')
+    this.props.navigation.navigate('Bets')
+  }
+
+  openDrawer=()=>{
+    this.props.navigation.openDrawer()
   }
 
   render(){
@@ -63,7 +67,9 @@ class matchs extends Component {
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
             <View style={styles.navbar}>
-              <Image source={Menu} style={styles.imageMenu}/>
+              <TouchableWithoutFeedback onPress={this.openDrawer}>
+                <Image source={Menu} style={styles.imageMenu}/>
+              </TouchableWithoutFeedback>
               <Text style={styles.sectionTitle}>Rappi Bet</Text>
               <Image source={Search} style={styles.imageSearch}/>
             </View>
