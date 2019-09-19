@@ -6,18 +6,16 @@ export default function (state = {}, action) {
         case SIGN_IN:
             return {
                 ...state, auth: {
-                    email: action.payload.email || false,
-                    token: action.payload.token || false,
-
+                    id:action.payload.IdApostador || false,
+                    token:action.payload.token || false
                 }
             }
         case SIGN_UP:
             return {
                 ...state, auth: {
-                    email: action.payload.email || false,
-                    token: action.payload.token || false,
-
-                }
+                        id:action.payload.IdApostador || false,
+                        token:action.payload.token || false
+                    }
             }
         default:
             return state

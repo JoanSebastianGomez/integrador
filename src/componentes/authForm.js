@@ -81,7 +81,7 @@ class AuthForm extends Component {
       if (this.state.type === 'Login') {
         this.props.signIn(formToSubmit)
       } else {
-        
+
         this.props.signUp(formToSubmit)
       }
     } else {
@@ -119,6 +119,16 @@ class AuthForm extends Component {
     }
 
 
+  }
+  isLog = () => {
+
+    if (this.state.id) {
+      <View>
+        <Text> escribeb</Text>
+        <Text value={this.state.form.email.value} ></Text>
+      </View>
+
+    }
   }
 
   updateInput = (name, value) => {
@@ -158,7 +168,7 @@ class AuthForm extends Component {
         onChangeText={value => this.updateInput("password", value)}
         secureTextEntry
       />
-
+       {this.isLog()}
       {this.confirmPassword()}
       {this.formHasErrors()}
       <View style={{ marginTop: 20 }}>

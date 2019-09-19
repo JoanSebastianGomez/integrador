@@ -50,7 +50,7 @@ class matchs extends Component {
   }
 
   goBets=()=>{
-    this.props.navigation.navigate('Bets')
+    this.props.navigation.navigate('Bet')
   }
 
   render(){
