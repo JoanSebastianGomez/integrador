@@ -2,7 +2,7 @@ import React, {Fragment, Component} from 'react';
 import {StyleSheet, ScrollView, View, Text, StatusBar, Image,SafeAreaView, TouchableWithoutFeedback} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import Match from '../componentes/match';
+import Match from '../componentes/match-bets';
 import Menu from '../assets/img/menu.png';
 import Search from '../assets/img/search.png';
 
