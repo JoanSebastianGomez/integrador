@@ -34,13 +34,12 @@ import Bottom from '../componentes/bottom';
 import Match from '../componentes/match';
 import Input from '../componentes/input';
 import Bets from '../ventanas/bets';
-import Balon from '../assets/img/Image.png';
-import Card from '../assets/img/tarjeta.png';
 import Menu from '../assets/img/menu.png';
 import Search from '../assets/img/search.png';
-import Date from '../componentes/date';
-
-
+import Team1 from '../assets/img/dim.png';
+import Team2 from '../assets/img/ah.png';
+import Team3 from '../assets/img/america.png';
+import Team4 from '../assets/img/cali.png';
 
 class teams extends Component {
 
@@ -64,34 +63,27 @@ class teams extends Component {
                             <Text style={styles.sectionTitle}>Rappi Bet</Text>
                             <Image source={Search} style={styles.imageSearch}/>
                         </View>
-                        <View>
-                            <Text style={styles.textFonts}>Apuesta</Text>
-                            <View style={styles.sectionContainer2}>
-                                <Match/>
-                            </View>
-                                <Text style={styles.sectionTitle}>___________________________</Text>
+                        <View style={styles.body}>
+                            <Text style={styles.titulo}>PJ   G   P   E   Pts</Text>
+                            <Text style={styles.sectionTitle}>_______________________________</Text>
                             <View style={styles.sectionContainer}>
-                                <Text style={styles.textFonts}>DIM</Text>
-                                <Text style={styles.textFonts}>1,5</Text>
-                            </View>
+                                <Image source={Team1} style={styles.imageTeam}/>
+                            </View>                            
+                            <Text style={styles.sectionTitle}>_______________________________</Text>
                             <View style={styles.sectionContainer}>
-                                <Text style={styles.textFonts}>AH</Text>
-                                <Text style={styles.textFonts}>3,3</Text>
+                                <Image source={Team2} style={styles.imageTeam}/>
                             </View>
+                            <Text style={styles.sectionTitle}>_______________________________</Text>
                             <View style={styles.sectionContainer}>
-                                <Text style={styles.textFonts}>Empate</Text>
-                                <Text style={styles.textFonts}>0,4</Text>
+                                <Image source={Team3} style={styles.imageTeam}/>
                             </View>
-                            
-                            <Text style={styles.sectionTitle}>___________________________</Text>
-                            <Text style={styles.textFonts}>Mis apuestas</Text>
+                            <Text style={styles.sectionTitle}>_______________________________</Text>
+                            <View style={styles.sectionContainer}>
+                                <Image source={Team4} style={styles.imageTeam}/>
+                            </View>
                         </View>
                     </ScrollView>
                 </SafeAreaView>
-                <View>
-                    <Button title="boton"  onPress={()=>this.goNext()} >navegar </Button>
-                    <Text>Aca va los teams</Text>
-                </View>
             </Fragment>
             
         )
@@ -110,15 +102,33 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
     },
-    fechas: {
-        textAlign: "center",
-    },
-    engine: {
-        position: 'absolute',
-        right: 0,
+    titulo: {
+        textAlign: 'right',
+        fontWeight: "bold",
+        marginRight: 38,
+        marginTop: 32,
+        fontSize: 20,
     },
     body: {
         backgroundColor: Colors.white,
+    },
+    textFonts: {
+        fontSize: 20,
+        fontWeight: '600',
+        color: Colors.black,
+    },
+    sectionTitle: {
+        fontSize: 24,
+        fontWeight: '600',
+        color: '#07A200',
+        textAlign: "center",
+    },
+    sectionContainer: {
+        paddingHorizontal: 74,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: 'space-between',
+        alignContent: 'center',
     },
     sectionContainer1: {
         marginTop: 32,
@@ -127,20 +137,17 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
     },
-    sectionTitle: {
-        fontSize: 24,
-        fontWeight: '600',
-        color: '#07A200',
-        textAlign: "center",
-    },
     sectionDescription: {
         marginTop: 8,
         fontSize: 18,
         fontWeight: '400',
         color: Colors.dark,
     },
-    highlight: {
-        fontWeight: '700',
+    imageTeam: {
+        width: 45,
+        height: 45,
+        margin: 0,
+        position: "relative",
     },
     imageMenu: {
         width: 50,
@@ -151,14 +158,6 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         marginLeft: 80,
-    },
-    footer: {
-        color: Colors.dark,
-        fontSize: 12,
-        fontWeight: '600',
-        padding: 4,
-        paddingRight: 12,
-        textAlign: 'right',
     },
 });
 

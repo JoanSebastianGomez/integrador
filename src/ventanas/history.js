@@ -36,9 +36,7 @@ import Input from '../componentes/input';
 import Bets from '../ventanas/bets';
 import Menu from '../assets/img/menu.png';
 import Search from '../assets/img/search.png';
-import Date from '../componentes/date';
-
-
+import Historial from '../componentes/historyElement';
 
 class history extends Component {
 
@@ -63,10 +61,8 @@ class history extends Component {
                     <View style={styles.body}>
                         <Input style={styles.fechas}/>
                         <View style={styles.sectionContainer1}>
-                            <Match goBets={this.goBets}/>                
+                            <Historial/>                
                         </View>
-                        <Input/>
-                        <Text>3</Text>
                     </View>
                 </ScrollView>
                 </SafeAreaView>
@@ -94,11 +90,11 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.white,
     },
     sectionContainer1: {
-        marginTop: 32,
-        paddingHorizontal: 24,
+        marginTop: 26,
+        marginBottom: 36,
+        paddingHorizontal: 74,
         flex: 1,
         flexDirection: "row",
-        justifyContent: "center",
     },
     sectionTitle: {
         fontSize: 24,

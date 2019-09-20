@@ -3,8 +3,9 @@ import {StyleSheet, View, Text, Button, Image, TouchableWithoutFeedback} from 'r
 import Team1 from '../assets/img/dim.png';
 import Team2 from '../assets/img/ah.png';
 import Date from './date';
+import Result from './result';
 
-const match = (props) => {
+const historial = (props) => {
     return(
       <View style={styles.apuesta}>
            <TouchableWithoutFeedback 
@@ -16,7 +17,7 @@ const match = (props) => {
             />
             </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => props.goBets()}>
-            <Date/>
+            <Result/>
         </TouchableWithoutFeedback>  
         <TouchableWithoutFeedback onPress={() =>props.goBets()}>
             <Image
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     },
   });
 
-export default match;
+export default historial;
 
 
 /*<Button

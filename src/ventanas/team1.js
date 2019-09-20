@@ -18,41 +18,56 @@ import {
     Text,
     Image,
     StatusBar,
-    Button,
     TouchableWithoutFeedback
 } from 'react-native';
 
-import {
-    Header,
-    LearnMoreLinks,
-    Colors,
-    DebugInstructions,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import Bottom from '../componentes/bottom';
 import Match from '../componentes/match';
 import Input from '../componentes/input';
-import Bets from '../ventanas/bets';
-import Balon from '../assets/img/Image.png';
-import Card from '../assets/img/tarjeta.png';
 import Menu from '../assets/img/menu.png';
 import Search from '../assets/img/search.png';
-import Date from '../componentes/date';
-
-
+import Team3 from '../assets/img/america.png';
+import Team4 from '../assets/img/cali.png';
+import Team2 from '../assets/img/ah.png';
 
 class team1 extends Component {
 
     goNext=()=>{
         this.props.navigation.navigate('Bet')
-      }
+    }
+    openDrawer=()=>{
+        this.props.navigation.openDrawer()
+    }
       
     render() {
         return(
-        <View>
-            <Text>Aca va los team1</Text>
-        </View>)
+            <Fragment>
+                <StatusBar barStyle="dark-content" />
+                <SafeAreaView>
+                    <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
+                        <View style={styles.navbar}>
+                            <TouchableWithoutFeedback onPress={this.openDrawer}>
+                                <Image source={Menu} style={styles.imageMenu}/>
+                            </TouchableWithoutFeedback>
+                            <Text style={styles.sectionTitle}>Rappi Bet</Text>
+                            <Image source={Search} style={styles.imageSearch}/>
+                        </View>
+                        <View style={styles.body}>
+                            <Text style={styles.textFonts}>Partidos anteriores</Text>
+                            <Text style={styles.titulo}>PG      PP    PE  </Text>
+                            <Text style={styles.sectionTitle}>__________________________</Text>
+                            <View style={styles.sectionContainer}>
+                                <Image source={Team3} style={styles.imageTeam}/>
+                                <Image source={Team2} style={styles.imageTeam}/>
+                                <Image source={Team4} style={styles.imageTeam}/>
+                            </View> 
+                            
+                        </View>
+                    </ScrollView>
+                </SafeAreaView>
+            </Fragment>
+        )
 
     }
 }
@@ -67,6 +82,20 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
         flex: 1,
         flexDirection: "row",
+    },
+    titulo: {
+        textAlign: 'right',
+        fontWeight: "bold",
+        marginRight: 58,
+        marginTop: 32,
+        fontSize: 20,
+    },
+    imageTeam: {
+        width: 45,
+        height: 45,
+        marginLeft: 64,
+        marginBottom: 20,
+        position: "relative",
     },
     fechas: {
         textAlign: "center",
