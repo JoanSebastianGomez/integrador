@@ -18,8 +18,8 @@ import Team1 from './ventanas/team1'
 import Team2 from './ventanas/team2'
 import Stadistics from './ventanas/stadistics'
 import History from './ventanas/history'
-
-
+import Prefer from './ventanas/preferences'
+import SideMenu from './componentes/sideDrawer'
 
 
 
@@ -28,9 +28,14 @@ const BetStack =createBottomTabNavigator({
     Team1:Team1,
     Team2:Team2,
     Stadistics:Stadistics
+},{
+    tabBarOptions:{
+        
+    }
 })
 
 const AppStack =createBottomTabNavigator({
+    Prefer: Prefer,
     Matchs:Matchs,
     Teams:Teams,
     History:History
@@ -39,6 +44,7 @@ const DrawStack=createDrawerNavigator({
     AppStack:AppStack,
     BetStack:BetStack
 },{
+    contentComponent: SideMenu,
     drawerWidth: 140,
     drawerBackgroundColor: '#8EE46D',
     drawerType: "front",
