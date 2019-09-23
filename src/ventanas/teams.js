@@ -8,7 +8,7 @@
 
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux'
-import { getArticles } from '../actions/index'
+import { getTeams } from '../actions/teams_actions'
 
 import {
     SafeAreaView,
@@ -43,49 +43,52 @@ import Team4 from '../assets/img/cali.png';
 
 class teams extends Component {
 
-    goNext=()=>{
+    componentDidMount(){
+        this.props.dispatch(getTeams())
+    }
+    goNext = () => {
         this.props.navigation.navigate('Bet')
-      }
-      
-    openDrawer=()=>{
+    }
+
+    openDrawer = () => {
         this.props.navigation.openDrawer()
     }
     render() {
-        return(
+        return (
             <Fragment>
                 <StatusBar barStyle="dark-content" />
                 <SafeAreaView>
                     <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
                         <View style={styles.navbar}>
                             <TouchableWithoutFeedback onPress={this.openDrawer}>
-                                <Image source={Menu} style={styles.imageMenu}/>
+                                <Image source={Menu} style={styles.imageMenu} />
                             </TouchableWithoutFeedback>
                             <Text style={styles.sectionTitle}>Rappi Bet</Text>
-                            <Image source={Search} style={styles.imageSearch}/>
+                            <Image source={Search} style={styles.imageSearch} />
                         </View>
                         <View style={styles.body}>
                             <Text style={styles.titulo}>PJ   G   P   E   Pts</Text>
                             <Text style={styles.sectionTitle}>_______________________________</Text>
                             <View style={styles.sectionContainer}>
-                                <Image source={Team1} style={styles.imageTeam}/>
-                            </View>                            
-                            <Text style={styles.sectionTitle}>_______________________________</Text>
-                            <View style={styles.sectionContainer}>
-                                <Image source={Team2} style={styles.imageTeam}/>
+                                <Image source={Team1} style={styles.imageTeam} />
                             </View>
                             <Text style={styles.sectionTitle}>_______________________________</Text>
                             <View style={styles.sectionContainer}>
-                                <Image source={Team3} style={styles.imageTeam}/>
+                                <Image source={Team2} style={styles.imageTeam} />
                             </View>
                             <Text style={styles.sectionTitle}>_______________________________</Text>
                             <View style={styles.sectionContainer}>
-                                <Image source={Team4} style={styles.imageTeam}/>
+                                <Image source={Team3} style={styles.imageTeam} />
+                            </View>
+                            <Text style={styles.sectionTitle}>_______________________________</Text>
+                            <View style={styles.sectionContainer}>
+                                <Image source={Team4} style={styles.imageTeam} />
                             </View>
                         </View>
                     </ScrollView>
                 </SafeAreaView>
             </Fragment>
-            
+
         )
 
     }
@@ -162,7 +165,9 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProp(state) {
+    console.log(state)
     return {
+        Teams: state.Teams
     }
 }
 export default connect(mapStateToProp)(teams);

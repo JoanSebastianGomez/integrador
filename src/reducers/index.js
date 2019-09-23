@@ -1,6 +1,12 @@
 import {combineReducers} from 'redux';
-import articles from './articles_reducer'
+import Articles from './articles_reducer'
+import User from './user_reducer'
+import Teams from './team_reducer'
+
+
 const rootReducer=combineReducers({
-articles
+Articles,
+User,
+Teams
 })
 export default rootReducer;
