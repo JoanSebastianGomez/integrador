@@ -30,25 +30,49 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Bottom from '../componentes/bottom';
-import Match from '../componentes/match';
-import Input from '../componentes/input';
-import Bets from '../ventanas/bets';
 import Menu from '../assets/img/menu.png';
 import Search from '../assets/img/search.png';
 import Team1 from '../assets/img/dim.png';
 import Team2 from '../assets/img/ah.png';
 import Team3 from '../assets/img/america.png';
 import Team4 from '../assets/img/cali.png';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class teams extends Component {
 
-    componentDidMount(){
+
+    componentDidMount() {
         this.props.dispatch(getTeams())
     }
     goNext = () => {
         this.props.navigation.navigate('Bet')
     }
+
+
+    renderTeams = (teams) =>
+        (
+            teams.teams ?
+                teams.teams.teams.map((team, i) => (
+                    <TouchableOpacity key={i}>
+                     <Text>sada</Text>
+                    </TouchableOpacity>
+                ))
+                : null
+
+        )
+
+    /*
+    example 
+     {           "id": "5d700ccdaa2e000b3c4ee2a3",
+                "nombreEquipo": "Deportivo Independiente Medellin",
+                "jugador": null,
+                "jugadores": [
+                    "David Gonzales",
+                    "German Cano"
+                ],
+                "rutaFotoEquipo": "localhost/img/picture/dim.jpg"
+            }
+     */
 
     openDrawer = () => {
         this.props.navigation.openDrawer()
@@ -59,6 +83,9 @@ class teams extends Component {
                 <StatusBar barStyle="dark-content" />
                 <SafeAreaView>
                     <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
+
+
+
                         <View style={styles.navbar}>
                             <TouchableWithoutFeedback onPress={this.openDrawer}>
                                 <Image source={Menu} style={styles.imageMenu} />

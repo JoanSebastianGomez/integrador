@@ -1,36 +1,58 @@
-import React, {Fragment, Component} from 'react';
-import {StyleSheet, ScrollView, View, Text, StatusBar, Image,SafeAreaView, TouchableWithoutFeedback} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
+import React, { Fragment, Component } from 'react';
+import { StyleSheet, ScrollView, View, Text, StatusBar, Image, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { connect } from 'react-redux'
+import { getApuestas } from '../actions/apuestas_actions'
 import Match from '../componentes/match-bets';
 import Menu from '../assets/img/menu.png';
 import Search from '../assets/img/search.png';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-class bets extends Component{
+class bets extends Component {
+    componentDidMount() {
+        this.props.dispatch(getApuestas())
+    }
 
-    openDrawer=()=>{
+
+
+    renderapuestas = (apuestas) =>
+        (
+            apuestas.apuestas ?
+                apuestas.apuestas.apuestas.map((team, i) => (
+                    <TouchableOpacity key={i}>
+                        <Text>adasd</Text>
+                    </TouchableOpacity>
+                ))
+                : null
+
+        )
+
+
+
+    openDrawer = () => {
         this.props.navigation.openDrawer()
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <Fragment>
                 <StatusBar barStyle="dark-content" />
                 <SafeAreaView>
                     <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
                         <View style={styles.navbar}>
+                            {this.renderapuestas(this.props.Apuestas)}
                             <TouchableWithoutFeedback onPress={this.openDrawer}>
-                                <Image source={Menu} style={styles.imageMenu}/>
+                                <Image source={Menu} style={styles.imageMenu} />
                             </TouchableWithoutFeedback>
                             <Text style={styles.sectionTitle}>Rappi Bet</Text>
-                            <Image source={Search} style={styles.imageSearch}/>
+                            <Image source={Search} style={styles.imageSearch} />
                         </View>
                         <View>
                             <Text style={styles.textFonts}>Apuesta</Text>
                             <View style={styles.sectionContainer2}>
-                                <Match/>
+                                <Match />
                             </View>
-                                <Text style={styles.sectionTitle}>___________________________</Text>
+                            <Text style={styles.sectionTitle}>___________________________</Text>
                             <View style={styles.sectionContainer}>
                                 <Text style={styles.textFonts}>DIM</Text>
                                 <Text style={styles.textFonts}>1,5</Text>
@@ -43,7 +65,7 @@ class bets extends Component{
                                 <Text style={styles.textFonts}>Empate</Text>
                                 <Text style={styles.textFonts}>0,4</Text>
                             </View>
-                            
+
                             <Text style={styles.sectionTitle}>___________________________</Text>
                             <Text style={styles.textFonts}>Mis apuestas</Text>
                         </View>
@@ -98,6 +120,12 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: 'space-between',
     },
-  });
+});
 
-export default bets;
+function mapStateToProp(state) {
+    console.log(state)
+    return {
+        Apuestas: state.Apuestas
+    }
+}
+export default connect(mapStateToProp)(bets);

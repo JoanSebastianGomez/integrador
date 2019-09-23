@@ -8,7 +8,7 @@
 
 import React, {Fragment, Component} from 'react';
 import {connect} from 'react-redux'
-import {getArticles} from '../actions/index'
+import { getPartidos } from '../actions/partidos_actions'
 
 import {
   SafeAreaView,
@@ -46,7 +46,7 @@ class matchs extends Component {
   
 
   componentDidMount(){
-    this.props.dispatch(getArticles());
+    this.props.dispatch(getPartidos());
   }
 
   goBets=()=>{
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProp(state){
   return {
-    articles:state.articles
+    Partidos:state.Partidos
   }
 }
 export default connect(mapStateToProp)(matchs);
